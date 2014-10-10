@@ -1,0 +1,51 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.samsung.mscr.gearconsolesdk.demo.manager">
+
+    <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK"/>
+    <uses-permission android:name="com.samsung.wmanager.APP"/>
+    <uses-permission android:name="com.samsung.WATCH_APP_TYPE.Linked_Follower"/>
+
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="master_app_packagename"
+            android:value="com.samsung.mscr.gearconsolesdk.demo.manager"/>
+        <meta-data
+            android:name="master_app_name"
+            android:value="GearConsoleSDKDemo"/>
+        <!--<meta-data-->
+        <!--android:name="master_app_samsungapps_deeplink"-->
+        <!--android:value="samsungapps://SellerDetail/sh3geupar4"/>-->
+        <!--<meta-data-->
+            <!--android:name="master_app_playstore_deeplink"-->
+            <!--android:value="https://play.google.com/store/apps/details?id=com.samsung.mscr.gearconsoleapp"/>-->
+        <meta-data
+            android:name="GearAppType"
+            android:value="wgt"/>
+        <!-- Notification max byte can be adjusted. (Default : 500byte) -->
+        <meta-data
+            android:name="app_notification_maxbyte"
+            android:value="500 "/>
+        <meta-data
+            android:name="AccessoryServicesLocation"
+            android:value="/res/xml/accessoryservices.xml"/>
+
+        <service
+            android:name=".GearConsoleProviderService">
+        </service>
+
+        <receiver android:name="com.samsung.android.sdk.accessory.ServiceConnectionIndicationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.service.action.ACCESSORY_SERVICE_CONNECTION_IND"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.sdk.accessory.RegisterUponInstallReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.device.action.REGISTER_AFTER_INSTALL"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

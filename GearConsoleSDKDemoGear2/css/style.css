@@ -1,0 +1,33 @@
+
+* {
+    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0px auto;
+}
+
+.contents {
+	display: flex;
+	display: -webkit-flex;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	height:320px;
+}
+
+.content_text {
+	font-weight:bold;
+	font-size:5em;
+	color:#fff;
+}
+
+#connect {
+	position: absolute;
+	top: 12px;
+	display: block;
+	left: 12px;
+}
+
+#loader {
+    visibility: hidden;
+}
